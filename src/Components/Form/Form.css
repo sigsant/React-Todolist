@@ -1,0 +1,18 @@
+form {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+#iconField {
+    display: flex;
+    justify-content:center;
+    width: 3em;
+}
+
+#iconAdd {
+    align-self: flex-end;
+    cursor: pointer;
+    font-size: 32px;
+    color: blue;
+}
