@@ -5,6 +5,8 @@ La idea de crear una serie de logs para los nuevos proyectos que realice con los
 
 ### Nota 1: 10/03/2021 - Sobre cuestiones de maquetación (I)
 
+**Enlace útil**: [Documentación a Material UI](https://material-ui.com)
+
 La idea general de una lista de tareas es que debe ser lo más simple posible con las funciones más elementales para su uso personal. Durante los dos primeros días de proyecto -el 8 y el 9 de marzo- estuve realizando un prototipo en papel sobre cómo se tendría que ver la aplicación. Los dos requisitos indispensables para mí son los siguientes:
 
 - La interfaz debe ser lo más minimalista y funcional posible.
@@ -15,6 +17,6 @@ Esto es, la presentación no debe distraer de sus funciones más básicas. Esto 
 
 
 Con estos dos requisitos en mente comencé a realizar la cabecera del programa y la barra de tareas con Bootstrap 5. Después de años utilizandolo en tareas en academias recordé la razón por la cual he intentado evitarlo: la presentación de las webs realizadas en este framework es muy genérica y enseña malos hábitos de legibilidad y encapsulación de elementos divs innecesarios. 
-Buscando otras alternativas que generen un código mucho más limpio, me decidí a emplear Material UI en su lugar.
+Buscando otras alternativas que generen un código mucho más limpio, me decidí a emplear Material UI y aprenderlo. 
 
 **Recordatorio:** La sobreescritura de estilo de un componente en Material UI afecta globalmente a TODA la aplicación. Emplear extensivamente las reglas, variables y Flexbox en CSS.
