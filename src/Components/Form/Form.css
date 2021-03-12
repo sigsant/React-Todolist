@@ -2,17 +2,10 @@ form {
     display: flex;
     justify-content: center;
     align-content: center;
-}
-
-#iconField {
-    display: flex;
-    justify-content:center;
-    width: 3em;
+    gap: 1em;
 }
 
 #iconAdd {
     align-self: flex-end;
-    cursor: pointer;
-    font-size: 32px;
-    color: blue;
 }
+
