@@ -7,19 +7,30 @@ import './Form.css';
 
 const Form = () => {
 
-    useEffect(() => {
-        console.table(task);
-    })
-
     const [task, setTask] = useState([
         {tarea: "Estudiar Angular", completado: false, id: uuidv4()}, 
         {tarea: "Escuchar podcasts", completado: false, id: uuidv4()}, 
         {tarea: "Hacer Ejercicio", completado: false, id: uuidv4()}
     ]);
 
-    const addElement = (e) => {
-        const [name, value] = e.target;
-        console.log(`Nombre: ${name} -- Valor ${value}`);
+    const [newTask, setNewTask] = useState({
+        tarea: "",
+        completado: false,
+    })
+
+    useEffect(() => {
+        console.table(task);
+    }, [task])
+
+    const handleInput = (event) => {
+        const {name, value} = event.target;
+        setNewTask({...newTask, [name]: value});
+    }
+
+    const agregarTarea = (e) =>{
+        e.preventDefault();
+        let nuevoId = {...newTask, id: uuidv4()};
+        setTask(state => [...state, nuevoId]);
     }
 
 
@@ -31,14 +42,15 @@ const Form = () => {
                     name="tarea" 
                     label="Nombre de la tarea" 
                     placeholder="Nombre de la tarea"
-                    onChange={addElement}/>
+                    onChange={handleInput}/>
 
                     <Button type="submit" 
                             variant="contained"
                             color="primary"
                             size="medium"
                             startIcon={<AddCircleIcon />}
-                            id="iconAdd">
+                            id="iconAdd"
+                            onClick={agregarTarea}>
                             Añadir
                     </Button>
             </form>
