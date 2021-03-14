@@ -20,3 +20,20 @@ Con estos dos requisitos en mente comencé a realizar la cabecera del programa y
 Buscando otras alternativas que generen un código mucho más limpio, me decidí a emplear Material UI y aprenderlo. 
 
 **Recordatorio:** La sobreescritura de estilo de un componente en Material UI afecta globalmente a TODA la aplicación. Emplear extensivamente las reglas, variables y Flexbox en CSS.
+
+### Nota 2: 13/03/2021 - Avances del proyecto
+
+Mi problema es hacer soluciones complejas de problemas que son fáciles. En este caso era crear una lista de objeto compuesto de esta manera:
+
+Nombre | Datatype | Valor
+------ | -------- | ----
+NombreTarea | string | dinamico
+Completado | boolean | estatico
+ID | string | dinamico
+
+De los cuales debía crearse en dos pasos: 
+
+1. En el momento en que se añade una tarea, la función genera una plantilla compuesta del nombre de la tarea y el estatus actual.
+2. Al pulsar en el botón se añade a este campo una ID alfanumerica aleatoria con la libreria uuid.
+
+He quedado satisfecho al ver que la lista de tareas se actualizaba en la consola del navegador. En los proximos días crearé una serie de unidades de testo con Jest para detectar posibles bugs. 
