@@ -10,8 +10,9 @@ Lo sé, todo el mundo comienza con Hello World y con un app CRUD o utilizacion d
 
 ## Tecnologías y librerías usadas
 
-- **Framework web**: React
+- **Framework web**: React.
 - **Estilizacion e iconos**: Material UI.
+- **Librerias de testeo**: Enzyme + Jest.
 
 ### Estado de la situación
 
