@@ -37,3 +37,15 @@ De los cuales debía crearse en dos pasos:
 2. Al pulsar en el botón se añade a este campo una ID alfanumerica aleatoria con la libreria uuid.
 
 He quedado satisfecho al ver que la lista de tareas se actualizaba en la consola del navegador. En los proximos días crearé una serie de unidades de testo con Jest para detectar posibles bugs. 
+
+### Nota 3: 17/03/2021
+
+**Enlaces útiles:** 
+- [Instalacion de Enzyme y Jest para usar con React](https://stackoverflow.com/questions/65788095/syntaxerror-unexpected-token-on-shallow-render-with-enzyme-and-jest-in-reac)
+- [Documentación de Jest](https://jestjs.io/docs/api)
+- [Documentación de enzyme](https://enzymejs.github.io/enzyme/docs/api/)
+- [Breve Guía de uso de Jest y Enzime en una web App](https://blog.usejournal.com/testing-with-jest-and-enzyme-in-react-part-6-snapshot-testing-in-jest-72fb0ce91c5a)
+
+Tras varios problemas con el testeo de las funciones y componentes de React he subido los cambios en la rama dedicada al menú de busqueda/introduccion de tareas. Ya tuve experiencia en el pasado con Jest pero ninguna con Enzyme, así que el uso de ambas ha resultado ser bastante nuevo. 
+
+Mis problemas principales han sido la instalación de Enzyme, la cual no reconocía la sintaxis JSX y como podía actualizar los componentes. Esto último decidí adaptar los useSate con su posible equivalente en Javascript nativo. De cualquier forma he decidido realizar anotaciones mientras miro la documentación, guías y tutoriales tanto para el uso de los mocks en Jest como el empleo general de Enzyme.
