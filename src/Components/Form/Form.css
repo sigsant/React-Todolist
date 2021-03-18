@@ -1,0 +1,11 @@
+form {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    gap: 1em;
+}
+
+#iconAdd {
+    align-self: flex-end;
+}
+

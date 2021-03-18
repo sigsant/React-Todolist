@@ -1,11 +1,17 @@
 import React from 'react';
+import { Typography, Container } from '@material-ui/core';
+
+
 import './Header.css';
 
 const Header = (props) => {
+
     return(
-        <header class="container">
-            <h2 class="text-center m-5"> React-Agenda </h2>
-        </header>
+                <Container maxWidth="sm">
+                    <Typography variant="h4" align="center" id="header-title">
+                        React-TodoList
+                    </Typography>
+                </Container>
     )
 }
 
