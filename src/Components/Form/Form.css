@@ -5,6 +5,11 @@ form {
     gap: 1em;
 }
 
+#tarea {
+    background-color: white;
+    padding-left: 1em;
+}
+
 #iconAdd {
     align-self: flex-end;
 }
