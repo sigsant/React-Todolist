@@ -43,8 +43,7 @@ const Visor = (props) => {
     }
 
     const clickDelete = (valor) => {
-        console.log(`Se procedera a borrar el item con id ${valor}`);
-        // props.task.filter(item => item !== valor )
+        props.filterItem(valor);
     }
 
     return(
@@ -60,7 +59,7 @@ const Visor = (props) => {
                                 <EditIcon />
                             </IconButton> 
                             <Divider orientation="vertical" className={estilo.divider}/>
-                            <IconButton aria-label="eliminar" className={estilo.iconButton} onClick={() => clickDelete(item)}>
+                            <IconButton aria-label="eliminar" className={estilo.iconButton} onClick={() => clickDelete(item.id)}>
                                 <DeleteIcon />
                             </IconButton> 
                     </Paper>

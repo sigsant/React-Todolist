@@ -29,8 +29,10 @@ const Form = (props) => {
         e.preventDefault();
         let nuevoId = {...newTask, id: uuidv4()};
         setTask(state => [...state, nuevoId]);
-        
     }
+     const filterItem = (valor) => {
+        setTask(task.filter(item => item.id !== valor));
+     }
 
 
     return(
@@ -58,7 +60,7 @@ const Form = (props) => {
                     </Button>
             </form>
 
-            <Visor element={task} />
+            <Visor element={task} filterItem={filterItem} />
         </Container>
     )
 }
