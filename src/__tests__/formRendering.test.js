@@ -1,17 +1,21 @@
 import {shallow} from 'enzyme';
+
 import {TextField, Button} from '@material-ui/core';
 
 import Form from '../Components/Form/Form';
 import {Tarea, agregarTarea, addPropiedad} from './testTareas';
 
 describe("<Form /> renderizado", () => {
+    let wrapper;
+    beforeEach(() => {
+        wrapper = shallow(<Form />);
+    });
+
     it("Renderiza el elemento TextField como input para introducir la tarea", () => {
-        const formWrapper = shallow(<Form />);
-        expect(formWrapper.find(TextField)).toHaveLength(1);
+        expect(wrapper.containsMatchingElement(TextField)).toBe(true);
     });
     it("Renderiza un elemento Button para agregar tareas", () => {
-        const formWrapper = shallow(<Form />);
-        expect(formWrapper.find(Button)).toHaveLength(1);
+        expect(wrapper.containsMatchingElement(Button)).toBe(true);
     });
 });
 
