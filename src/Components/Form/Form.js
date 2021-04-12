@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect,useState } from 'react';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import { Container, Button, InputBase } from '@material-ui/core';
 
@@ -11,14 +11,19 @@ import './Form.css';
 const Form = (props) => {
 
     const [task, setTask] = useState([
-        {tarea: "Estudiar Angular", completado: false, id: uuidv4()}, 
-        {tarea: "Escuchar podcasts", completado: false, id: uuidv4()}, 
+        {tarea: "Estudiar Angular", completado: false, editado: false, id: uuidv4()}, 
+        {tarea: "Escuchar podcasts", completado: false, editado: false, id: uuidv4()}, 
     ]);
 
     const [newTask, setNewTask] = useState({
         tarea: "",
         completado: false,
+        editado: false
     })
+
+    // useEffect(() => {
+    //     console.table(task)
+    // }, [task])
 
     const handleInput = (event) => {
         const {name, value} = event.target;
@@ -30,10 +35,21 @@ const Form = (props) => {
         let nuevoId = {...newTask, id: uuidv4()};
         setTask(state => [...state, nuevoId]);
     }
-     const filterItem = (valor) => {
-        setTask(task.filter(item => item.id !== valor));
-     }
 
+    //Permite editar el objeto dentro de un setState mediante un spread Array.
+    const editarItem = (valorId) => {
+        let editItem = task.map(item => {
+            if(item.id === valorId){
+                return {...item, editado: !item.editado};
+            }
+            return item;
+        });
+        setTask(editItem)
+    }
+
+    const filterItem = (valorId) => {
+        setTask(task.filter(item => item.id !== valorId));
+    }
 
     return(
         <Container maxWidth="sm">
@@ -59,8 +75,7 @@ const Form = (props) => {
                             Añadir
                     </Button>
             </form>
-
-            <Visor element={task} filterItem={filterItem} />
+            <Visor element={task} filterItem={filterItem}  editarItem={editarItem}/>
         </Container>
     )
 }

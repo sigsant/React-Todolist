@@ -2,7 +2,7 @@ import React from 'react';
 
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
-import { Container, Paper, Divider, IconButton, Typography  } from '@material-ui/core';
+import { Container, Paper, Divider, IconButton, Typography, InputBase } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 import './Visor.css';
@@ -38,8 +38,9 @@ const Visor = (props) => {
 
     const estilo = useStyles();
 
-    const clickEdit = () => {
-        console.log("Boton Editar pulsado");
+    const clickEdit = (valorId) => {
+        // console.log(`Editar: ${valorId}`);
+        props.editarItem(valorId);
     }
 
     const clickDelete = (valor) => {
@@ -47,23 +48,44 @@ const Visor = (props) => {
     }
 
     return(
-
         <Container maxWidth="sm" className={estilo.contenedor}>
         {props.element.map( item  => {
-            return(
+
+            //TODO: Sieditar == false renderizar con Typography. Si true, renderizar con InputBase.
+
+            if(item.editado){
+                return(
                     <Paper  elevation={3} 
-                            key={item.id}
-                            className={estilo.displayTareas}>
-                            <Typography className={estilo.tipografia}>{item.tarea}</Typography>
-                            <IconButton aria-label="editar" className={estilo.iconButton} onClick={clickEdit}>
-                                <EditIcon />
-                            </IconButton> 
+                        key={item.id}
+                        className={estilo.displayTareas}>
+                            <InputBase className={estilo.tipografia} placeholder={item.tarea} />
+                                <IconButton aria-label="editar" className={estilo.iconButton} 
+                                            onClick={() => clickEdit(item.id)}>
+                                    <EditIcon />
+                                </IconButton> 
                             <Divider orientation="vertical" className={estilo.divider}/>
-                            <IconButton aria-label="eliminar" className={estilo.iconButton} onClick={() => clickDelete(item.id)}>
-                                <DeleteIcon />
-                            </IconButton> 
+                                <IconButton aria-label="eliminar" className={estilo.iconButton} 
+                                            onClick={() => clickDelete(item.id)}>
+                                    <DeleteIcon />
+                                </IconButton> 
                     </Paper>
-        )})}
+                )
+            } else {
+                return(
+                    <Paper  elevation={3} 
+                        key={item.id}
+                        className={estilo.displayTareas}>
+                            <Typography className={estilo.tipografia}>{item.tarea}</Typography>
+                                <IconButton aria-label="editar" className={estilo.iconButton} onClick={() => clickEdit(item.id)}>
+                                    <EditIcon />
+                                </IconButton> 
+                            <Divider orientation="vertical" className={estilo.divider}/>
+                                <IconButton aria-label="eliminar" className={estilo.iconButton} onClick={() => clickDelete(item.id)}>
+                                    <DeleteIcon />
+                                </IconButton> 
+                    </Paper>
+            )}
+        })}
     </Container>
 
     )
